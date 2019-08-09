@@ -63,10 +63,10 @@ function harmonicsGenerator() {
             fractionNode.appendChild(fractionText);
             stairsInside.appendChild(fractionNode);
         }
-    } 
+    }
+
     if (descending === true) {
         
-       
         //generate descendingHarmonics
         let numerator = 1, denominator = 2;
 
