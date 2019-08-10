@@ -46,22 +46,18 @@
     <div id="upstairsDownstairs">
 
         <div id='stairButtons'>
-            <p class='stairButton' id='ascendingStairButton'>
+            <p class='stairButton' id='ascendingStairButton' onclick='ascendingHarmonicGenerator()'>
                 Ascending
             </p>
-            <p class='stairButton' id='descendingStairButton'>
+            <p class='stairButton' id='descendingStairButton' onclick='descendingHarmonicGenerator()'>
+
                 Descending
             </p>
         </div>
-        range: <input type='number' id='range' value='120'><br/><button onclick='harmonicsGenerator()'>generate</button>
+        range: <input type='number' id='range' value='120'><br/>
         <section id='stairsInside'></section>    
 
     </div>
-
-  <!-- <div id="descendingOutside" style='visibility:hidden;'>
-        range: <input type='number' id='otherRange' value='120'><br/><button onclick='descendingGenerator()'>generate</button>
-        <section id='descendingInside'></section>
-    </div> -->
 
   <div id='interface'>
 
@@ -126,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-let ascendingPool = [];
 const stairsInside = document.getElementById('stairsInside');
 const range = document.getElementById('range');
 const harmonics = document.getElementsByClassName('harmonics');
@@ -180,24 +175,7 @@ info.onmouseout = () => {
 const ascendingStairButton = document.getElementById('ascendingStairButton')
 const descendingStairButton = document.getElementById('descendingStairButton')
 
-let ascending = true, descending = false;
 
-
-ascendingStairButton.onclick = () => {
-    ascending = true;
-    descending = false;
-    ascendingStairButton.style.background = 'lightgrey'
-    descendingStairButton.style.background = 'white'
-
-}
-
-descendingStairButton.onclick = () => {
-    ascending = false;
-    descending = true;
-    descendingStairButton.style.background = 'lightgrey'
-    ascendingStairButton.style.background = 'white'
-
-}
 
 
 
