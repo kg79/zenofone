@@ -1,16 +1,15 @@
-/*
-
-//ascending harmonics
-function harmonicsGenerator() {
-
-       */
 let descendingPool = [];
 
 let ascendingPool = [];
 
 function ascendingHarmonicGenerator() {
-    console.log(harmonics)
-         
+
+       while(harmonics.length > 0) {
+            for (let i = 0; i < harmonics.length; i++) {
+                harmonics[i].parentElement.removeChild(harmonics[i])
+            }
+       } 
+        
            //generate harmonics
            let numerator = 2, denominator = 1;
            ascendingPool.push({'fractions':'1/1','decimals':1/1});
@@ -46,13 +45,7 @@ function ascendingHarmonicGenerator() {
                    }
                }
            }
-           //remove existing
-           while (harmonics.length) {
-               for (let i = 0; i < harmonics.length; i++) {
-                   harmonics[i].parentElement.removeChild(harmonics[i])
-               }
-           }
-           
+          
            //create elements and render
            let decimalNode, decimalText, fractionNode, fractionText;
            
@@ -73,9 +66,13 @@ function ascendingHarmonicGenerator() {
        }
    
 function descendingHarmonicGenerator() {
-           //clear existing
-           
-           console.log(harmonics)
+   
+        while(harmonics.length > 0) {
+            for (let i = 0; i < harmonics.length; i++) {
+                harmonics[i].parentElement.removeChild(harmonics[i])
+            }
+       }           
+   
 
         //generate descendingHarmonics
         let numerator = 1, denominator = 2;
@@ -113,13 +110,6 @@ function descendingHarmonicGenerator() {
                 }
             }
         }
-        // clear existing if any
-        while (harmonics.length) {
-            for (let i = 0; i < harmonics.length; i++) {
-                harmonics[i].parentElement.removeChild(harmonics[i])
-            }
-        }
-        
         
         let decimalNode, decimalText, fractionNode, fractionText;
         

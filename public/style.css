@@ -13,11 +13,16 @@
     width:5em;
     margin:auto;
 }
+/*
 #ascendingOutside { 
     grid-area: menu; 
 }
 #descendingOutside { 
     grid-area: menu; 
+}
+*/
+#upstairsDownstairs {
+   background:lime; 
 }
 #interface { 
     grid-area: main; 
@@ -104,7 +109,7 @@ background:rgb(33, 243, 79);
     height:70vh;
     border:solid purple 3px;
     position:absolute;
-    width:18vw;
+    width:17vw;
 
 } #range {
 width:4em;
@@ -146,29 +151,17 @@ border:solid .05em black;
     font-size:90%;
     position:absolute;
 }
-.stairButton {
-    display:inline-flex;
-    
 
-
-    border:black 1px inset; 
-    font-size:83%;
-
-}
 #stairButtons {
 display:flex;
 justify-content:space-around; 
 
-}       
+}      
 #upstairsDownstairs {
-    background:pink;
+
 }
-#ascendingStairButton {
+#stairControls {
     background:magenta;
+    height:13vh;
 
 }
-#descendingStairButton {
-    background:white;
-}
-
-
