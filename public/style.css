@@ -107,7 +107,7 @@ background:rgb(33, 243, 79);
     grid-template-columns: auto auto;
     overflow:scroll;
     height:70vh;
-    border:solid purple 3px;
+  margin:.5em; 
     position:absolute;
     width:17vw;
 
@@ -132,7 +132,6 @@ border:solid .05em black;
     border:solid 2px black;
 } .effects {
     margin-left:4em;
-    /*border:solid black .08em;*/
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -161,7 +160,17 @@ justify-content:space-around;
 
 }
 #stairControls {
-    background:magenta;
+
     height:13vh;
 
+}
+#biquadFrequency {
+    width:4em;
+    text-align:center;
+
+}
+#biquadLabel {
+  
+   margin:0;
+   
 }

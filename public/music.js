@@ -48,9 +48,9 @@ class Music {
 	    this.name.frequency.value = stdPitch.value* eval(fractions[this.index].textContent);
         this.volume.gain.value = volume.value/10;
 		this.name.type = wave.value;
-		this.biquad.type = 'lowpass';
-		this.biquad.frequency.setValueAtTime(528, atx.currentTime);
-		this.biquad.gain.setValueAtTime(25, atx.currentTime);
+		this.biquad.type = biquadFilter.value;
+		this.biquad.frequency.setValueAtTime(200, atx.currentTime);
+		this.biquad.gain.setValueAtTime(25, atx.currentTime)
 		this.name.connect(this.volume).connect(this.biquad).connect(atx.destination);
 	    this.name.start(0);
 	    this.playing = true;

@@ -87,6 +87,22 @@
                 </select>
             </section>
 
+            <section class='effects'>
+                <label>Biquad Filter: </label>
+                 <select id='biquadFilter'>
+                        <option value="lowpass">lowpass</option>
+                        <option value="highpass">highpass</option>
+                        <option value="bandpass">bandpass</option>
+                        <option value="lowshelf">lowshelf</option>
+                        <option value="highshelf">highshelf</option>
+                        <option value="peaking">peaking</option>
+                        <option value="notch">notch</option>
+                        <option value="allpass">allpass</option>
+                </select>
+               <p id='biquadLabel'>  freq.  <input type='number' id='biquadFrequency' value='396'></p>
+
+            </section>
+
             <section class='effects' id='info'>
                 <u id='instructions'>instructions</u>
                 <section id='message'>
@@ -112,6 +128,8 @@ const tiles = document.getElementsByClassName('tiles');
 
 const leftStartAt = document.getElementById('leftStartAt');
 
+const biquadFilter = document.getElementById('biquadFilter');
+const biquadFrequency = document.getElementById('biquadFrequency');
 
 let atx;
 window.onclick = () => atx = new AudioContext();
