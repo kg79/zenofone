@@ -54,6 +54,8 @@
                         Descending
                     </button>
                 </div>
+		<label>Volume</label><br/>
+		<input id='sampleVolume' type='range' min='0' max='10' step='.1'>
         </div>
        <section id='stairsInside'></section>    
 
@@ -116,7 +118,7 @@ and clicking the shift button.
 
 </body>
 <script>
-
+const sampleVolume = document.getElementById('sampleVolume');
 const keyNames = document.getElementsByClassName('keyNames');
 const decimals = document.getElementsByClassName('decimals');
 const fractions = document.getElementsByClassName('fractions');

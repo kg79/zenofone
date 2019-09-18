@@ -68,7 +68,7 @@ Music.prototype.sampleOn = function(ratio){
         this.name = atx.createOscillator();
 	    this.volume = atx.createGain();
 	    this.name.frequency.value = stdPitch.value* eval(ratio);
-        this.volume.gain.value = .2;
+        this.volume.gain.value = sampleVolume.value/10;
         this.name.type = wave.value;
 	    this.name.connect(this.volume).connect(atx.destination);
 	    this.name.start(0);
