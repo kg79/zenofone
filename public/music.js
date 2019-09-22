@@ -51,6 +51,7 @@ class Music {
 		this.biquad.type = biquadFilter.value;
 		this.biquad.frequency.setValueAtTime(200, atx.currentTime);
 		this.biquad.gain.setValueAtTime(25, atx.currentTime)
+		this.biquad.Q.value = biquadQuality.value;
 		this.name.connect(this.volume).connect(this.biquad).connect(atx.destination);
 	    this.name.start(0);
 	    this.playing = true;
