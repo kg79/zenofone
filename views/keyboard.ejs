@@ -8,12 +8,6 @@
 <script src='shift.js'></script>
     </head>
     <body>
-    <div id='top'>
-        <h1>
-            zenofone
-        </h1>
-    </div>
-
     <div id="grid-container">
         <div id="heading">
 
@@ -103,6 +97,7 @@
                 </select>
                 <p class='biquadLabel'>  freq.  <input type='number' id='biquadFrequency' value='528'></p>
 		<p class='biquadLabel'>  quality  <input type='number' id='biquadQuality' value='100'></p>
+		<p class='biquadLabel'>  gain <input type='range' id='biquadGain' value='10' min='-40' max='40' step='1'></p>
 
             </section>
 
@@ -133,6 +128,7 @@ const leftStartAt = document.getElementById('leftStartAt');
 
 const biquadFilter = document.getElementById('biquadFilter');
 const biquadFrequency = document.getElementById('biquadFrequency');
+const biquadGain = document.getElementById('biquadGain');
 
 let atx;
 window.onclick = () => atx = new AudioContext();

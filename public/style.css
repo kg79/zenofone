@@ -56,7 +56,7 @@ grid-template-areas:
 'menu footer footer footer footer footer';
 grid-gap: 10px;
 background-color: #2196F3;
-height:89vh;
+height:99vh;
 }
 
 #grid-container > #interface {
