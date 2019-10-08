@@ -95,9 +95,9 @@
                         <option value="notch">notch</option>
                         <option value="allpass">allpass</option>
                 </select>
-                <p class='biquadLabel'>  freq.  <input type='number' id='biquadFrequency' value='528'></p>
-		<p class='biquadLabel'>  quality  <input type='number' id='biquadQuality' value='100'></p>
-		<p class='biquadLabel'>  gain <input type='range' id='biquadGain' value='10' min='-40' max='40' step='1'></p>
+<p class='biquadLabel' id='biquadFrequencyContainer'>  freq.  <input type='number' id='biquadFrequency' value='528'></p>
+<p class='biquadLabel' id='biquadQualityContainer'>  quality  <input type='number' id='biquadQuality' value='10'></p>
+<p class='biquadLabel' id='biquadGainContainer' hidden>  gain <input type='range' id='biquadGain' value='10' min='-40' max='40' step='1'></p>
 
             </section>
 
@@ -128,10 +128,14 @@ const leftStartAt = document.getElementById('leftStartAt');
 
 const biquadFilter = document.getElementById('biquadFilter');
 const biquadFrequency = document.getElementById('biquadFrequency');
+const biquadQuality = document.getElementById('biquadQuality');
 const biquadGain = document.getElementById('biquadGain');
 
 let atx;
-window.onclick = () => atx = new AudioContext();
+
+window.addEventListener('click', () => {
+	atx = new AudioContext();
+})
 
 document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < keyCodes.length; i++) {
@@ -192,9 +196,59 @@ info.onmouseout = () => {
 const ascendingStairButton = document.getElementById('ascendingStairButton')
 const descendingStairButton = document.getElementById('descendingStairButton')
 
+const biquadFrequencyContainer = document.getElementById('biquadFrequencyContainer');
+const biquadQualityContainer = document.getElementById('biquadQualityContainer');
+const biquadGainContainer = document.getElementById('biquadGainContainer');
+
+biquadFilter.addEventListener('change', () => {
+	switch (biquadFilter.value) {
+		case 'lowpass':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = false;
+			biquadGainContainer.hidden = true;
+		break;
+		case 'highpass':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = false;
+			biquadGainContainer.hidden = true;
+
+		break;
+		case 'bandpass':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = false;
+			biquadGainContainer.hidden = true;
+
+		break;
+		case 'lowshelf':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = true;
+			biquadGainContainer.hidden = false;
+
+		break;
+		case 'highshelf':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = true;
+			biquadGainContainer.hidden = false;
+		break;
+		case 'peaking':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = false;
+			biquadGainContainer.hidden = false;
+		break;
+		case 'notch':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = false;
+			biquadGainContainer.hidden = true;
+		break;
+		case 'allpass':
+			biquadFrequencyContainer.hidden = false;
+			biquadQualityContainer.hidden = false;
+			biquadGainContainer.hidden = true;
+		break;
 
 
-
+	}	
+})
 
 </script>
 </html>
