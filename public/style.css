@@ -131,7 +131,6 @@ border:solid .05em black;
 } #waveType {
     border:solid 2px black;
 } .effects {
-    margin-left:4em;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -173,4 +172,11 @@ justify-content:space-around;
   
    margin:0;
    
+} .compressors {
+    width:8em;
+    height:1.5em;
+} .compressorBoxes {
+    
+} #compressorBox {
+    
 }

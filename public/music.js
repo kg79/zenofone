@@ -54,31 +54,36 @@ class Music {
 
 			this.name.frequency.value = stdPitch.value* eval(fractions[this.index].textContent);
 			this.name.type = wave.value;
-	this.name.connect(this.volume).connect(this.biquad).connect(this.delay).connect(atx.destination);
+this.name.connect(this.volume).connect(this.biquad).connect(this.delay).connect(this.compressor).connect(atx.destination);
 			this.name.start(0);
 			this.volume.gain.value = volume.value/10;
 
 			this.biquad.type = biquadFilter.value;
-			this.biquad.frequency.setValueAtTime(biquadFrequency.value, atx.currentTime);
-			this.biquad.gain.setValueAtTime(biquadGain.value, atx.currentTime)
+			this.biquad.frequency.value = biquadFrequency.value;
+			this.biquad.gain.value = biquadGain.value;
 			this.biquad.Q.value = biquadQuality.value;
 
 			this.delay.delayTime.value = theDelay.value;
-
+/*
 			this.compressor.threshold.setValueAtTime(-50, atx.currentTime);
 			this.compressor.knee.setValueAtTime(40, atx.currentTime);
 			this.compressor.ratio.setValueAtTime(12, atx.currentTime);
 			this.compressor.attack.setValueAtTime(0, atx.currentTime);
 			this.compressor.release.setValueAtTime(0.25, atx.currentTime);
+*/
+			this.compressor.attack.value = compressorAttack.value;
+			this.compressor.knee.value = compressorKnee.value;
+			this.compressor.ratio.value = compressorRatio.value;
+			this.compressor.release.value = compressorRelease.value;
 
 			this.playing = true;
 			tiles[this.index].style.border = 'solid red .1em';
 		}
     }
     off() {
-	this.name.stop(0);
-	this.playing = false;
-	tiles[this.index].style.border = 'solid black .1em';
+		this.name.stop(0);
+		this.playing = false;
+		tiles[this.index].style.border = 'solid black .1em';
     }
 }
 
