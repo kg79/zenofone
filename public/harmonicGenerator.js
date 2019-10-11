@@ -2,7 +2,7 @@ let descendingPool = [];
 
 let ascendingPool = [];
 
-function ascendingHarmonicGenerator() {
+function ascendingGenerator() {
 
        while(harmonics.length > 0) {
             for (let i = 0; i < harmonics.length; i++) {
@@ -65,7 +65,7 @@ function ascendingHarmonicGenerator() {
            }
        }
    
-function descendingHarmonicGenerator() {
+function descendingGenerator() {
    
         while(harmonics.length > 0) {
             for (let i = 0; i < harmonics.length; i++) {

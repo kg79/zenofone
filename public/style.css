@@ -11,7 +11,7 @@ body, html {
     'menu main main main main main'
     'menu main main main main main'
     'menu main main main main main'
-    'menu footer footer footer footer footer'
+    'menu main main main main main'
     'menu footer footer footer footer footer';
     background-color:hsl(209, 71%, 54%);
     height:99vh;
@@ -23,23 +23,16 @@ body, html {
     background:hsl(143, 91%, 70%);
     display:flex;
     justify-content:space-around;
-} #stdPitch {
+} #stdPitch, #range {
     width:4em;
     text-align:center;
-}
-#dragonDrop {
-    width:5em;
-    margin:auto;
-    background:grey;
-}
-#range {
+} #dragonDrop {
     width:4em;
-}
-#stairButtons {
-    display:flex;
-    justify-content:space-around; 
-    
-}      
+    margin:auto;
+    background:white;
+} #range {
+    width:4em;
+}    
 #stairsInside {
     display:grid;
     grid-template-columns: auto auto;
