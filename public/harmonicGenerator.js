@@ -47,7 +47,7 @@ function ascendingGenerator() {
            }
           
            //create elements and render
-           let decimalNode, decimalText, fractionNode, fractionText;
+           let decimalNode, decimalText, fractionNode, fractionText, valueNode, valueText;
            
            for (let i = 0; i < range.value; i++) {
            
@@ -62,6 +62,13 @@ function ascendingGenerator() {
                fractionText = document.createTextNode(`${ascendingPool[i].fractions}`);
                fractionNode.appendChild(fractionText);
                stairsInside.appendChild(fractionNode);
+
+               valueNode = document.createElement('section');
+               valueNode.setAttribute('class', 'harmonics')
+valueText = document.createTextNode(`${(eval(ascendingPool[i].fractions) * stdPitch.value).toPrecision(5).replace(/0+$/, '').replace(/\.$/, '')}`)
+               valueNode.appendChild(valueText)
+               stairsInside.appendChild(valueNode);
+
            }
        }
    
@@ -111,7 +118,7 @@ function descendingGenerator() {
             }
         }
         
-        let decimalNode, decimalText, fractionNode, fractionText;
+        let decimalNode, decimalText, fractionNode, fractionText, valueNode, valueText;
         
         
         for (let i = 0; i < range.value; i++) {
@@ -127,6 +134,13 @@ function descendingGenerator() {
             fractionText = document.createTextNode(`${descendingPool[i].fractions}`);
             fractionNode.appendChild(fractionText);
             stairsInside.appendChild(fractionNode);
+
+            valueNode = document.createElement('section');
+            valueNode.setAttribute('class', 'harmonics')
+valueText = document.createTextNode(`${(eval(descendingPool[i].fractions) * stdPitch.value).toPrecision(5).replace(/0+$/, '').replace(/\.$/, '')}`)
+            valueNode.appendChild(valueText)
+            stairsInside.appendChild(valueNode);
+
         }
  
 }

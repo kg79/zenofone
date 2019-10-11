@@ -41,7 +41,8 @@
     <% for (let i = 0; i < 40; i++) { %>
       <section class='tiles' data-index='<%=i%>'>
           <article class='keyNames'>&nbsp;</article>
-          <article class='fractions'>&nbsp;</article>
+<article class='fractions' ondrop='drop(event)' ondragover='allowDrop(event)' 
+draggable='true' ondragstart='drag(event)' id='tile<%=i%>'>&nbsp;</article>
           <article class='decimals'>&nbsp;</article>
           <article class='values'>&nbsp;</article>
       </section>
@@ -160,10 +161,13 @@ stairsInside.onclick = e => dragonDrop.innerText = e.target.textContent;
 interface.onclick = e => {
    let dataIndex = parseInt(e.target.parentNode.getAttribute('data-index'));
    
-    if (e.srcElement.localName === 'article') {
+    if (e.srcElement.localName === 'article' && dragonDrop.textContent !== '') {
     fractions[dataIndex].innerText = dragonDrop.textContent;
     decimals[dataIndex].innerText = eval(dragonDrop.textContent).toPrecision(5).replace(/0+$/, '');
-	values[dataIndex].innerText = stdPitch.value* eval(dragonDrop.textContent).toPrecision(5);
+    values[dataIndex].innerText = stdPitch.value* eval(dragonDrop.textContent).toPrecision(5);
+
+    dragonDrop.innerText = '';
+    
     } 
 }
 const startAt = document.getElementById('startAt');
@@ -240,6 +244,30 @@ biquadFilter.addEventListener('change', () => {
 	}	
 })
 
+let originalValue, originalIndex, newIndex;
 
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+  originalValue = ev.target.textContent;
+  originalIndex = parseInt(ev.target.id.replace(/tile/, ''))
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  newIndex = parseInt(ev.target.id.replace(/tile/, ''))
+  ev.target.innerText = originalValue;
+  decimals[newIndex].innerText = eval(originalValue);
+  values[newIndex].innerText = eval(originalValue) * stdPitch.value;
+
+  fractions[originalIndex].textContent = '';
+  decimals[originalIndex].textContent = '';
+  values[originalIndex].textContent = '';
+
+}
 </script>
 </html>
