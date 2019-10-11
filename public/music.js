@@ -63,7 +63,6 @@ this.name.connect(this.volume).connect(this.biquad).connect(this.delay)
 			this.volume.gain.value = volume.value/10;
 
 		    this.biquad.type = biquadFilter.value;
-		    console.log(biquadFilter.value.length)
 			this.biquad.frequency.value = biquadFrequency.value;
 			this.biquad.gain.value = biquadGain.value;
 			this.biquad.Q.value = biquadQuality.value;

@@ -1,29 +1,59 @@
-
-#heading { 
-    grid-area: header;
-    height:5em;
+body, html {
+    margin:0;
+    background:black;
+    font-family:sans-serif;
+} #main-container {
+    display: grid;
+    grid-template-areas:
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu footer footer footer footer footer'
+    'menu footer footer footer footer footer';
+    background-color:hsl(209, 71%, 54%);
+    height:99vh;
+} #leftColumn {
+    grid-area:menu;
+    text-align:center;
+} .leftControls {
+    margin:0;
+    background:hsl(143, 91%, 70%);
     display:flex;
     justify-content:space-around;
-} #ratio {
-    width:fit-content;
-    background:white;
+} #stdPitch {
+    width:4em;
     text-align:center;
 }
 #dragonDrop {
     width:5em;
     margin:auto;
+    background:grey;
 }
-/*
-#ascendingOutside { 
-    grid-area: menu; 
+#range {
+    width:4em;
 }
-#descendingOutside { 
-    grid-area: menu; 
+#stairButtons {
+    display:flex;
+    justify-content:space-around; 
+    
+}      
+#stairsInside {
+    display:grid;
+    grid-template-columns: auto auto;
+    overflow:scroll;
+    height:77vh;
+    margin:1.1em;
+    position:absolute;
+    width:16vw;
 }
-*/
-#upstairsDownstairs {
-   background:lime; 
+
+.harmonics {
+    border:solid black 1px;
 }
+
 #interface { 
     grid-area: main; 
     display:grid;
@@ -33,59 +63,16 @@
     height:100%;
     width:auto;
 }
-#footer { 
-    grid-area: footer; 
-    height:5em;
-    display:flex;
-    justify-content:flex-start;
-}
-body {
-    margin:0;
-    background:black;
-}
-#grid-container {
-display: grid;
-grid-template-areas:
-'menu header header header header header'
-'menu main main main main main'
-'menu main main main main main'
-'menu main main main main main'
-'menu main main main main main'
-'menu main main main main main'
-'menu main main main main main'
-'menu footer footer footer footer footer';
-grid-gap: 10px;
-background-color: #2196F3;
-height:99vh;
-}
 
-#grid-container > #interface {
-background-color: black ;
-} #grid-container > div {
-background-color: white;
-text-align: center;
-} 
 
-h1 {
-margin:0;
-margin:auto;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family: 'Dancing Script', cursive;
-font-size:220%;
-color:#2196F3;
-text-shadow:0px -2px white;
-height:10vh;
-width:fit-content;
-background:black;
-} 
-#top {
-    background:black;
-}
-article {
+.keyNames, .fractions, .decimals, .values {
 width:5em;
+height:2em;
+text-align:center;
+background:aquamarine;
+border:solid 1px white;
 }
+
 .tiles {
 width:fit-content;
 display:flex;
@@ -94,89 +81,38 @@ justify-content:space-around;
 margin:auto;
 height:7em;
 border:solid black .1em;
-} .keyNames {
-background:white;
-} .fractions {
-background:#2196F3;
-} .decimals {
-background:rgb(33, 243, 198);
-} .values {
-background:rgb(33, 243, 79);
-} #stairsInside {
-    display:grid;
-    grid-template-columns: auto auto;
-    overflow:scroll;
-    height:70vh;
-  margin:.5em; 
-    position:absolute;
-    width:17vw;
+}
 
-} #range {
-width:4em;
-} .harmonics {
-border:solid .05em black;
-} #interface {
 
-} #otherRange {
-    width:4em;
-} .descendingHarmonics {
-    border:solid .05em black;
-} .shifter {
-    background:white;
-    width:fit-content;
-} #stdPitch {
-    width:5em;
-} #volumeBox {
+
+
+#footer {
     border:solid 2px black;
-} #waveType {
-    border:solid 2px black;
-} .effects {
+}
+
+.effects {
     display:flex;
     flex-direction:column;
-    justify-content:center;
-} .controls {
-    width:fit-content;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-evenly;
-    align-items:center;
-} .shifter {
-    width:5em;
-} article {
-    height:2em;
-} #message {
-    visibility:hidden;
-    font-size:90%;
-    position:absolute;
+    justify-content:space-around;
+    background:#bbb;
 }
 
-#stairButtons {
-display:flex;
-justify-content:space-around; 
-
-}      
-#upstairsDownstairs {
-
+#volumeBox, #waveBox {
+    text-align:center;
 }
-#stairControls {
 
-    height:13vh;
-
-}
 #biquadFrequency {
     width:4em;
     text-align:center;
-
 }
-.biquadLabel {
-  
-   margin:0;
-   
-} .compressors {
+
+.compressors {
     width:8em;
     height:1.5em;
-} .compressorBoxes {
-    
-} #compressorBox {
-    
+}
+
+#footer { 
+    grid-area: footer; 
+    display:flex;
+    justify-content:space-around;
 }
