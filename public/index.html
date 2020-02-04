@@ -5,118 +5,67 @@
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
         <style>
             :root {
-                --main-bg-color: #03c9a8; 
-            }
-            body {
+                --theme:#250dff;
+            } body {
                 margin:0;
                 font-family:sans-serif;
-            }
-            main {
-                height:100vh;
             } h1 {
                 font-family:'Dancing Script', cursive;
+                color:var(--theme);
                 margin:0;
-                height:10vh;
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                align-items:center;
-                background:var(--main-bg-color); 
-                color:black;
-                text-shadow:-2px -1px white;
-            } section {
-                background:var(--main-bg-color);
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                align-items:center;
-            } article {
-                /* background:var(--main-bg-color); */
-                width:82%;
-                /*height:100%;*/
                 text-align:center;
+                margin-bottom:1vh;
+            }
+            
+             #talk {
                 margin:auto;
-                display:flex;
-                flex-direction:column;
-            } div {
-                height:10vh;
-                background:var(--main-bg-color);
-                /* background:white; */
-                display:flex;
-                justify-content:space-evenly;
-                align-items:center;
+            } .info {
+                width:80%;
+                margin:auto;
+                margin-bottom:1vh;
+                text-indent:1em;
+                text-align:center;
+            }
 
-            } p {
-                text-indent:3em;
-                background:white;
-                border-radius:1em;
-                line-height:1.5em;
-                text-align:left;
-            } 
-            @media only screen and (max-width: 768px) {
-                article {
-                    width:100%;
-                } p {
-                    margin:1vh;
-                    padding:1%;
-                }
-            }  @media only screen and (min-width: 768px) {
-                section {
-                    height:80vh;
-                } p {
-                    text-align:center;
-                    padding:.1%;
-                    margin:.7em;
-                }
-            }
-            a {
-                background:black;
-                padding:1%;
-                border-radius:1em;
-                height:1.2em;
-                color:var(--main-bg-color);
-                text-decoration-color:white;
-                border:solid .1em white;
-            }
-            table {
-                border-collapse:collapse;
-            }
-            td {
-                border:solid 1.5px black;
-                background:white;
-                width:5em;
-            } .title {
-                width:fit-content;
-                margin:auto;
+            #navigation {
+
+            } .navElement {
+                margin:1%;
                 text-align:center;
-                margin-top:.5em;
-                margin-bottom:.5em;
-                text-indent:0;
-                padding:.3em;
-            } .frequency > td{
-                background:#94ecde;
+            } a {
+                color:var(--theme);
             }
+
+
         </style>
     </head>
     <body>
-        <main>
-            <h1>zenofone</h1>
-            <section>
-                <article>
-			<p>
-		The zenofone is a musical keyboard that operates outside the confines of the western music system. 
-		That is refering to the musical system of the western canon, or Equal-Temperament, not some sort of 
-		scale particular to Country & Western music.
-			</p>
-			<p>
-			Unbeknownst to many, the scale common to almost all modern instruments is actually slightly out 
-			of tune by it's own definition. 
-		</article>
+        <h1>zenofone</h1>
+
+            <section id='talk'>
+                <article class='info'>
+                    Zenofone is a musical keyboard that operates outside the confines of the western music system, a.k.a. Twelve-Tone Equal Temperament. 12-TET has been dominate for hundreds of years, but some flaws are apparent.
+                </article>
+                <article class='info'>
+                    For starters, a musical temperament is defined as 'altered harmonics to suit other purposes', implying that each notes is slightly out of tune (except for the octaves). Zenofone uses Just Intonation, which means it's tuned perfectly as far as people have discovered.
+                </article>
+                <article class='info'>
+                    Aside from finer tuning, it's designed to play many more than 12 notes. I don't believe 12 notes will continue to portray artists visions in terms of variation and accuracy. Zenofone is designed to generate and organize as many perfectly tuned notes as possible, until the differences in pitch become negligble.
+                </article>
+                <article class='info'>
+                    Zenofone is limited only by one's imagination, discipline, and ability of perception. 
+                </article>
+
             </section>
-            <div>
-                <a href='/grid'>keyboard</a>
-                <a href='/touchscreen'>touch&nbsp;screen</a>
-            </div>
-        </main>
+
+            <section id='navigation'>
+                <article class='navElement'>
+                    <a href='/keyboard'>Keyboard</a>
+                </article>
+                <article class='navElement'>
+                    <a href='/touchscreen'>Touch Screen</a>
+                </article>
+            </section>
+
     </body>
 </html>

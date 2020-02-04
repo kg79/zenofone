@@ -1,15 +1,13 @@
-let descendingPool = [];
-
-let ascendingPool = [];
 
 function ascendingGenerator() {
 
-       while(harmonics.length > 0) {
-            for (let i = 0; i < harmonics.length; i++) {
-                harmonics[i].parentElement.removeChild(harmonics[i])
-            }
-       } 
-        
+    let ascendingPool = [];
+
+    // remove existing
+    while (harmonics.length) {
+        stairsInside.removeChild(stairsInside.childNodes[0])
+    }
+
            //generate harmonics
            let numerator = 2, denominator = 1;
            ascendingPool.push({'fractions':'1/1','decimals':1/1});
@@ -46,26 +44,28 @@ function ascendingGenerator() {
                }
            }
           
-           //create elements and render
+           //render elements
            let decimalNode, decimalText, fractionNode, fractionText, valueNode, valueText;
            
            for (let i = 0; i < range.value; i++) {
            
                decimalNode = document.createElement(`section`);
-               decimalNode.setAttribute('class', 'harmonics')
+               decimalNode.setAttribute('class', 'harmonics');
                decimalText = document.createTextNode(`${ascendingPool[i].decimals.toPrecision(5).replace(/0+$/, '')}`);
                decimalNode.appendChild(decimalText);
                stairsInside.appendChild(decimalNode);
            
                fractionNode = document.createElement(`section`);
                fractionNode.setAttribute('class', 'harmonics')
+               fractionNode.setAttribute('data-class', 'isFraction');
                fractionText = document.createTextNode(`${ascendingPool[i].fractions}`);
                fractionNode.appendChild(fractionText);
                stairsInside.appendChild(fractionNode);
 
                valueNode = document.createElement('section');
                valueNode.setAttribute('class', 'harmonics')
-valueText = document.createTextNode(`${(eval(ascendingPool[i].fractions) * stdPitch.value).toPrecision(5).replace(/0+$/, '').replace(/\.$/, '')}`)
+                valueText = document.createTextNode(`${(eval(ascendingPool[i].fractions) * stdPitch.value).toPrecision(5).
+                replace(/0+$/, '').replace(/\.$/, '')}`)
                valueNode.appendChild(valueText)
                stairsInside.appendChild(valueNode);
 
@@ -74,11 +74,12 @@ valueText = document.createTextNode(`${(eval(ascendingPool[i].fractions) * stdPi
    
 function descendingGenerator() {
    
-        while(harmonics.length > 0) {
-            for (let i = 0; i < harmonics.length; i++) {
-                harmonics[i].parentElement.removeChild(harmonics[i])
-            }
-       }           
+    let descendingPool = [];
+
+    // remove existing
+    while (harmonics.length) {
+        stairsInside.removeChild(stairsInside.childNodes[0])
+    }           
    
 
         //generate descendingHarmonics
@@ -124,19 +125,20 @@ function descendingGenerator() {
         for (let i = 0; i < range.value; i++) {
         
             decimalNode = document.createElement(`section`);
-            decimalNode.setAttribute('class', 'harmonics')
+            decimalNode.setAttribute('class', 'harmonics');
             decimalText = document.createTextNode(`${descendingPool[i].decimals.toPrecision(5).replace(/0+$/, '')}`);
             decimalNode.appendChild(decimalText);
             stairsInside.appendChild(decimalNode);
         
             fractionNode = document.createElement(`section`);
-            fractionNode.setAttribute('class', 'harmonics')
+            fractionNode.setAttribute('class', 'harmonics');
+            fractionNode.setAttribute('data-class', 'isFraction');
             fractionText = document.createTextNode(`${descendingPool[i].fractions}`);
             fractionNode.appendChild(fractionText);
             stairsInside.appendChild(fractionNode);
 
             valueNode = document.createElement('section');
-            valueNode.setAttribute('class', 'harmonics')
+            valueNode.setAttribute('class', 'harmonics');
 valueText = document.createTextNode(`${(eval(descendingPool[i].fractions) * stdPitch.value).toPrecision(5).replace(/0+$/, '').replace(/\.$/, '')}`)
             valueNode.appendChild(valueText)
             stairsInside.appendChild(valueNode);

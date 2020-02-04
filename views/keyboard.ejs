@@ -14,26 +14,26 @@
 
         <p class='leftControls'>
             <label>standard pitch:</label>
-                <input type='number' id='stdPitch' value='396'>
-        </p>
-        <p class='leftControls'>
-            <label>selected ratio</label>
-                <span id='dragonDrop'>&nbsp;</span>
+                <input type='number' id='stdPitch' value='216'>
         </p>
         <p class='leftControls'>
             <label>range: </label>
                 <input type='number' id='range' value='200'>
         </p>
         <p class='leftControls'>
-<button id='ascendingButton' onclick='ascendingGenerator()'>Ascending</button>
-<button id='descendingButton' onclick='descendingGenerator()'>Descending</button>
+            <button id='ascendingButton' onclick='ascendingGenerator()'>Ascending</button>
+            <button id='descendingButton' onclick='descendingGenerator()'>Descending</button>
+                    </p>
+        <p class='leftControls'>
+            <label>selected ratio</label>
+                <span id='dragonDrop'>&nbsp;</span>
         </p>
         <p class='leftControls'>
             <label>Volume: </label>
-<input id='sampleVolume' type='range' min='0' max='10' step='.1' value='2'>
+            <input id='sampleVolume' type='range' min='0' max='10' step='.1' value='2'>
         </p>
 
-       <section id='stairsInside'></section>    
+       <section id='stairsInside'></section>   
 
     </div>
 
@@ -58,13 +58,14 @@ draggable='true' ondragstart='drag(event)' id='tile<%=i%>'>&nbsp;</article>
                     <input value='2' id='volume' type='range' min='0' max='10' step='1'>
                 </div>
 
+       
                 <div id='waveBox'>
                     wave type:<br/>
                     <select id='wave'>
                             <option value="sine">sine</option>
                             <option value="square">square</option>
                             <option value="triangle">triangle</option>
-                            <option value="sawtooth">sawtooth</option>
+                            200       <option value="sawtooth">sawtooth</option>
                     </select>
                 </div>
             </section>
@@ -152,10 +153,7 @@ const harmonics = document.getElementsByClassName('harmonics');
 const dragonDrop = document.getElementById('dragonDrop');
 const interface = document.getElementById('interface');
 
-
-
 stairsInside.onclick = e => dragonDrop.innerText = e.target.textContent;
-
 
 
 interface.onclick = e => {
@@ -174,18 +172,26 @@ const startAt = document.getElementById('startAt');
 stdPitch.addEventListener('change', () => {
     for (let i = 0; i < fractions.length; i++) {
         if (typeof eval(fractions[i].textContent) == 'number') {
-            values[i].innerText = (stdPitch.value * eval(fractions[i].textContent)).toPrecision(6)
+            values[i].innerText = (stdPitch.value * eval(fractions[i].textContent)).toPrecision(6);
         }
 
     }
 });
 
 stairsInside.addEventListener('mouseover', e => {
-    notes[40].sampleOn(e.target.textContent)
-})
+	
+    if (e.target.getAttribute('data-class') === 'isFraction') {
+        notes[40].sampleOn(e.target.textContent);
+        samplePlaying = true;
+    }
+});
+
 stairsInside.addEventListener('mouseout', () => {
-    notes[40].sampleOff()
-})
+    if (samplePlaying == true) {
+        notes[40].sampleOff();
+        samplePlaying = false;
+    }
+});
 
 const ascendingButton = document.getElementById('ascendingButton')
 const descendingButton = document.getElementById('descendingButton')
@@ -251,14 +257,12 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
   originalValue = ev.target.textContent;
   originalIndex = parseInt(ev.target.id.replace(/tile/, ''))
 }
 
 function drop(ev) {
   ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
   newIndex = parseInt(ev.target.id.replace(/tile/, ''))
   ev.target.innerText = originalValue;
   decimals[newIndex].innerText = eval(originalValue);
@@ -269,5 +273,8 @@ function drop(ev) {
   values[originalIndex].textContent = '';
 
 }
+
+
+
 </script>
 </html>

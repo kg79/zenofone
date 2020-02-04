@@ -74,7 +74,7 @@ class Music {
 			this.compressor.attack.value = compressorAttack.value;
 			this.compressor.knee.value = compressorKnee.value;
 			this.compressor.ratio.value = compressorRatio.value;
-			this.compressor.release.value = compressorRelease.value;
+			this.compressor.release.value = compressorRelease.value;harmonics
 			this.compressor.threshold.value = compressorThreshold.value;
 
 			this.playing = true;
@@ -87,6 +87,7 @@ class Music {
 		tiles[this.index].style.border = 'solid black .1em';
     }
 }
+let samplePlaying = false;
 
 Music.prototype.sampleOn = function(ratio){
         this.name = atx.createOscillator();
@@ -95,10 +96,12 @@ Music.prototype.sampleOn = function(ratio){
         this.volume.gain.value = sampleVolume.value/10;
         this.name.type = wave.value;
 	    this.name.connect(this.volume).connect(atx.destination);
-	    this.name.start(0);
+		this.name.start(0);
+		samplePlaying = true;
 }
 Music.prototype.sampleOff = function() {
-    this.name.stop(0);
+	this.name.stop(0);
+	samplePlaying = false;
 }
 
 

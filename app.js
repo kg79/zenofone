@@ -1,3 +1,5 @@
+// const IP = '192.168.1.9';
+const IP = 'localhost';
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -15,7 +17,7 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.get('/grid', (req, res) => {
+app.get('/keyboard', (req, res) => {
     res.render('keyboard')
 })
 
@@ -27,17 +29,13 @@ app.get('/favicon.ico', (req, res) => {
     res.end('favicon')
 })
 
-app.get('/test', (req, res) => {
-    res.render('test')
-})
-
 
 
 
 if (module === require.main) {
-  const server = app.listen(process.env.PORT || 8080, () => {
+  const server = app.listen(process.env.PORT || 8080, IP,() => {
     const port = server.address().port;
-    console.log(`App listening on port ${port}`);
+    console.log(`${IP}:${port}`);
   });
 
 }

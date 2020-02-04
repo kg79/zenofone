@@ -32,7 +32,14 @@ body, html {
     background:white;
 } #range {
     width:4em;
-}    
+} #instructions {
+    background:white;
+    border:solid 2px black;
+    border-radius:.4em;
+    width:fit-content;
+    margin:auto;
+    padding:.2em;
+}
 #stairsInside {
     display:grid;
     grid-template-columns: auto auto auto;
@@ -43,7 +50,7 @@ body, html {
     width:16vw;
 }
 
-.harmonics {
+.harmonics, .fractionHarmonics, .generations {
     border:solid black 1px;
 }
 
@@ -63,7 +70,7 @@ width:5em;
 height:2em;
 text-align:center;
 background:aquamarine;
-border:solid 1px white;
+border:solid 1px black;
 }
 
 .tiles {
@@ -108,4 +115,7 @@ border:solid black .1em;
     grid-area: footer; 
     display:flex;
     justify-content:space-around;
+}
+section[data-class='isFraction'], .fractions {
+    background:white;
 }
