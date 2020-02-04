@@ -14,7 +14,7 @@
 
         <p class='leftControls'>
             <label>standard pitch:</label>
-            <input type='number' id='stdPitch' value='216'>hz
+                <input type='number' id='stdPitch' value='216'>
         </p>
         <p class='leftControls'>
             <label>range: </label>
@@ -279,12 +279,10 @@ function drop(ev) {
 }
 
 const instructions = document.getElementById('instructions');
-let mousedover = false;
+
 instructions.onmouseover = () => {
-        instructions.innerText = 'Standard Pitch is what all the harmonics are based on, which is traditionally the A note tuned to 440hz. The range is how many harmonics will be generated, either higher or lower than the Standard Pitch. After generating the harmonic list, you can click on the white column to select a ratio, and then click on a tile to map it to the keyboard. When building your keyboard, you can alter the keymap by clicking and dragging note profiles by the white row. Various effects are available at your discretion.';
-}
-instructions.onmouseout = () => {
-    instructions.innerText = 'Instructions'
+	instructions.innerText = 'Standard Pitch is
+	'
 }
 
 </script>

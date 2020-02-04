@@ -33,12 +33,12 @@ body, html {
 } #range {
     width:4em;
 } #instructions {
-    background:white;
+    /* background:white;
     border:solid 2px black;
     border-radius:.4em;
     width:fit-content;
     margin:auto;
-    padding:.2em;
+    padding:.2em; */
 }
 #stairsInside {
     display:grid;
